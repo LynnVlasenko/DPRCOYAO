@@ -158,6 +158,15 @@ h1 {
     /*margin-right: 72px;*/
 }
 
+.location p {
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #6D6E70;
+}
+
 .icon_location {
     margin-right: 8px;
 }
@@ -166,24 +175,6 @@ h1 {
     display: flex;
     justify-content: right;
     /*margin-right: 72px;*/
-}
-
-li {
-    font-family: 'Roboto Condensed';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #6D6E70;
-}
-
-p {
-    font-family: 'Roboto Condensed';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #6D6E70;
 }
 
 .menu-list {
@@ -196,7 +187,27 @@ p {
     color: #6D6E70;
     text-decoration: none;
 }
+
+.container_item_menu {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container_item_menu p {
+    display: inline;
+    margin: 0;
+    margin-right: 8px;
+}
+
 .menu-list li {
+    display: block;
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #6D6E70;
     margin-right: 12px;
     text-transform: uppercase;
     padding: 4px 8px;
@@ -207,8 +218,57 @@ p {
 }
 
 .arrow {
+    position: absolute;
+    right: 0;
+    top: 33%;
+    width: 8px;
+    height: 8px;
+    background-image: url(Images/icon_arrow.svg);
     margin-left: 8px;
 }
+
+.drop_down_menu {
+    display: block;
+	position: absolute;
+	background: #fff;
+	margin: 0;
+	padding: 0;
+    list-style: none;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    margin-top: 4px;
+    margin-left: -8px;
+    z-index: 10000;
+}
+
+.drop_down_menu p {
+    margin: 0;
+}
+
+.drop_down_menu li {
+    display: none;
+    border-bottom: 1px solid #EC6073;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.drop_down_menu li:last-child {
+    border-bottom: none;
+    margin-right: 8px;
+}
+
+.drop_down_menu a {
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #6D6E70;
+    text-decoration: none;
+    text-transform: none;
+    position: relative;
+    z-index: 10000;
+}
+
 
 @media (max-width: 1290px) {
     .menu_container {
@@ -249,6 +309,32 @@ p {
     background: #EC6073;
 }
 
+.menu .menu-list li:hover .drop_down_menu li{
+    display: block;
+    background: none;
+}
+
+.menu .menu-list li:hover .drop_down_menu a{
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #6D6E70;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.menu-list li:hover a{
+    color: #fff;
+}
+
+.menu-list li:hover .arrow{
+    background: url(Images/icon_arrow_w.svg);
+}
+
+
+
 
 /*Slider*/
 
@@ -258,7 +344,6 @@ p {
   }
   
   .slide_viewer {
-    display: flex;
     height: 400px;
     overflow: hidden;
     position: relative;
@@ -518,6 +603,8 @@ p {
 }
 
 .link_news {
+    display: block;
+	position: absolute;
     font-family: 'Roboto Condensed';
     font-style: normal;
     font-weight: 700;
@@ -526,6 +613,22 @@ p {
     text-decoration: none;
     color: #6D6E70;
 }
+
+.link_news:after {
+	display: block;
+	position: absolute;
+	left: 0;
+	width: 0;
+	height: 1.5px;
+	background-color: #6D6E70;
+	content: "";
+	transition: width 0.3s ease-out;
+}
+
+.link_news:hover:after,
+.link_news:focus:after {
+	width: 100%;
+} 
 
 .date_news {
     font-family: 'Roboto Condensed';
@@ -555,7 +658,6 @@ p {
     color: #fff;
     padding: 8px 20px;
     margin: 30px auto 0 auto;
-    /*border: 1px solid #EC6073;*/
 }
 
 
@@ -597,6 +699,14 @@ p {
     width: 200px;
     height: 104px;
 }
+
+.collaboration_item:hover {
+    -webkit-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    transform: scale(1.02);
+    transition: .3s;
+    transition-delay: 0.1s;
+  }
 
 
 /*footer*/
@@ -736,7 +846,8 @@ footer{
 }
 
 
-/*a::before {
+/*.footer_menu-list a::after,
+.footer_menu-list a::before {
         content: '';
         transition: .3s;
         display: inline-block;
