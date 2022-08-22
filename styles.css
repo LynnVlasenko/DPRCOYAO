@@ -686,6 +686,9 @@ h1 {
     margin: 30px auto 0 auto;
 }
 
+.news_archive_btn:hover {
+    background: #EC134B;
+}
 
 /*Collaboration*/
 
@@ -1112,4 +1115,11 @@ footer{
         padding: 0;
         margin-left: 16px;
     }
+
+    .article_menu_list_item {
+        width: 250px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        }
 }
